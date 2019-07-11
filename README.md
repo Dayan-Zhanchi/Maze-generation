@@ -20,4 +20,4 @@ When the screen appears with a 2D grid, press s to start the maze generation.
 
 To exit simply click on the x on the upper right corner of the screen.
 
-![Maze generation visualization](https://github.com/Dayan-Zhanchi/Maze-generation/blob/master/maze%20generation/maze_generator.gif)
+![Maze generation visualization](maze_generator.gif)
