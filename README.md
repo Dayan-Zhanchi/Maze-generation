@@ -4,10 +4,20 @@ Pygame was used to visualize the process.
 
 ### How to run
 Download Pygame if you don't already have it:
-``pip install pygame``
-<br/>
+
+
+    pip install pygame
+
+
 In the folder ``maze generation`` run the following command:
-``py mazedrawer.py``
-<br/>
-When the screen appears with a 2D grid, press s to start the maze generation. 
+
+
+    py mazedrawer.py
+
+
+When the screen appears with a 2D grid, press s to start the maze generation.
+
+
 To exit simply click on the x on the upper right corner of the screen.
+
+![Maze generation visualization](https://github.com/Dayan-Zhanchi/Maze-generation/blob/master/maze%20generation/maze_generator.gif)
