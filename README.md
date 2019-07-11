@@ -9,7 +9,7 @@ Download Pygame if you don't already have it:
     pip install pygame
 
 
-In the folder ``maze generation`` run the following command:
+To start the screen run the following command:
 
 
     py mazedrawer.py
