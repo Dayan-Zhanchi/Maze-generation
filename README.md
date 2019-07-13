@@ -15,7 +15,8 @@ To start the screen run the following command:
     py main.py
 
 
-When the screen appears with a 2D grid, press s to start the maze generation.
+When the screen appears with a 2D grid, press s to start the maze generation. To generate a new maze simply
+click s again when the current generation has finished.
 
 
 To exit simply click on the x on the upper right corner of the screen.
