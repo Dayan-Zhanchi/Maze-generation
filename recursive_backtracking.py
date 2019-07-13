@@ -9,15 +9,15 @@ def recursive_backtracking(screen, clock, grid):
     stack = [current_cell]
     while stack:
         clock.tick(150)
-        neighbours = get_unvisited_neighbour(current_cell.neighbours, visited)
+        neighbours = __get_unvisited_neighbour(current_cell.neighbours, visited)
         visited[current_cell.x][current_cell.y] = True
 
         if neighbours:
-            next_cell_x, next_cell_y, direction = get_random_neighbour(neighbours)
+            next_cell_x, next_cell_y, direction = __get_random_neighbour(neighbours)
             next_cell = grid[next_cell_x][next_cell_y]
             stack.append(next_cell)
             # removing line of a grid to make the maze
-            remove_line(screen, current_cell.x, current_cell.y, direction)
+            __remove_line(screen, current_cell.x, current_cell.y, direction)
             current_cell = next_cell
             pygame.display.update()
         elif stack:
@@ -26,13 +26,13 @@ def recursive_backtracking(screen, clock, grid):
     return True
 
 
-def get_random_neighbour(unvisited_neighbours):
+def __get_random_neighbour(unvisited_neighbours):
     if len(unvisited_neighbours) > 1:
         return unvisited_neighbours[random.randint(0, len(unvisited_neighbours) - 1)]
     return unvisited_neighbours[0]
 
 
-def get_unvisited_neighbour(neighbours, visited):
+def __get_unvisited_neighbour(neighbours, visited):
     unvisited_neighbours = []
     for neighbour in neighbours:
         x, y = neighbour[0], neighbour[1]
@@ -41,7 +41,7 @@ def get_unvisited_neighbour(neighbours, visited):
     return unvisited_neighbours
 
 
-def remove_line(screen, current_cell_x, current_cell_y, direction):
+def __remove_line(screen, current_cell_x, current_cell_y, direction):
     offset = 1  # offset is needed to avoid creating white pixels around the very beginning and end of an erased line
     grid_size_x = int(c.maze_width / c.number_of_vertical_lines)
     grid_size_y = int(c.maze_height / c.number_of_horizontal_lines)

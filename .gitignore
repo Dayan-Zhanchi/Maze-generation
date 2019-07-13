@@ -1,0 +1,5 @@
+# IntelliJ configs
+.idea/
+
+# Python cache
+__pycache__/

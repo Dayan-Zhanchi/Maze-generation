@@ -9,9 +9,9 @@ class MazeDrawer:
 
     # start generating a randomly constructed maze
     def start_game_loop(self, grid):
-        screen = self.init_game_screen()
+        screen = self.__init_game_screen()
         pygame.display.update()
-        running = True  # whether the user wants to quit the game
+        running = True
         clock = pygame.time.Clock()
         while running:
             for event in pygame.event.get():
@@ -20,22 +20,22 @@ class MazeDrawer:
                 elif event.type == pygame.KEYDOWN:
                     if pygame.key.get_pressed()[pygame.K_s]:
                         # generate maze
-                        self.draw_2d_grid(screen)
+                        self.__draw_2d_grid(screen)
                         self.__maze_generation_algorithm(screen, clock, grid[:])
 
         pygame.quit()
         pygame.display.quit()
 
-    def init_game_screen(self):
+    def __init_game_screen(self):
         pygame.init()
         screen = pygame.display.set_mode((c.height, c.width))
         screen.fill(c.WHITE)
         # draw the foundation of the maze as a 2d grid
-        self.draw_2d_grid(screen)
+        self.__draw_2d_grid(screen)
         return screen
 
     @staticmethod
-    def draw_2d_grid(screen):
+    def __draw_2d_grid(screen):
         pygame.draw.rect(screen, c.BLACK, (c.start_x, c.start_y, c.maze_width, c.maze_height), 1)
         # draw the vertical lines
         for i in range(1, c.number_of_vertical_lines):
