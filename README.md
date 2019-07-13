@@ -12,7 +12,7 @@ Download Pygame if you don't already have it:
 To start the screen run the following command:
 
 
-    py mazedrawer.py
+    py main.py
 
 
 When the screen appears with a 2D grid, press s to start the maze generation.
