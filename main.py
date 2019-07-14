@@ -1,12 +1,12 @@
 import cell as ce
 import constants as c
 import mazedrawer as md
-import recursive_backtracking as rb
+from recursive_backtracking import recursive_backtracking
 
 
 def main():
     grid = [[ce.Cell((i, j), get_neighbours(i, j)) for j in range(c.number_of_vertical_lines)] for i in range(c.number_of_horizontal_lines)]
-    md.MazeDrawer(rb.recursive_backtracking).start_game_loop(grid)
+    md.MazeDrawer(recursive_backtracking).start_game_loop(grid)
 
 
 def get_neighbours(x, y):
