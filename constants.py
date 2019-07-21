@@ -17,3 +17,7 @@ margin_width = int((width - maze_width) / 2)
 margin_height = int((height - maze_height) / 2)
 start_x = 0 + margin_width
 start_y = 0 + margin_height
+
+# Maximum frames per second
+frames_rb = 150
+frames_prim = 400
