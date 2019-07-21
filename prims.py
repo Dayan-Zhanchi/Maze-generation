@@ -12,7 +12,8 @@ def prims(screen, clock, grid):
     upcoming_cells = []
     add_upcoming_cells(current_cell, upcoming_cells, visited)
     visited[current_cell.x][current_cell.y] = True
-    maze = [current_cell]  # TODO: make it as big as the grid size and only add cells to the maze list based on the cells x and y coordinate
+    maze = [[0 for _ in range(c.number_of_vertical_lines)] for _ in range(c.number_of_horizontal_lines)]
+    maze[current_cell.x][current_cell.y] = current_cell
 
     while not (np.asarray(visited) == 1).all():
         clock.tick(c.frames_prim)
@@ -28,7 +29,7 @@ def prims(screen, clock, grid):
         pygame.display.update()
 
         add_upcoming_cells(current_cell, upcoming_cells, visited)  # there may be dead ends, hopefully that will be okay
-        maze.append(current_cell)
+        maze[current_cell.x][current_cell.y] = current_cell
 
 
 def add_upcoming_cells(current_cell, upcoming_cells, visited):
@@ -42,7 +43,6 @@ def get_random_adj_cell_direction(x, y, maze):
     unvisited_adj_cells = utils.get_neighbours(x, y, True)
     adj_cell_direction = []
     for (x, y, direction) in unvisited_adj_cells:
-        for cell_maze in maze:
-            if (x, y) == (cell_maze.x, cell_maze.y):
-                adj_cell_direction.append(direction)
+        if maze[x][y] != 0:
+            adj_cell_direction.append(direction)
     return adj_cell_direction[random.randint(0, len(adj_cell_direction) - 1)]
