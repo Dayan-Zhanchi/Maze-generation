@@ -33,8 +33,8 @@ You can also press p for activating prims algorithm or r for recursive backtrack
 To exit simply click on the x on the upper right corner of the screen.
 
 ### Maze generation with recursive backtracking
-![Maze generation visualization RB](RB%20maze%20generation.gif)
+![Maze generation visualization RB](./assets/RB%20maze%20generation.gif)
 
 
 ### Maze generation with Prims algorithm
-![Maze generation visualization Prims](prims%20maze%20generation.gif)
+![Maze generation visualization Prims](./assets/prims%20maze%20generation.gif)

@@ -1,6 +1,6 @@
 import mazedrawer as md
-from prims import prims
-from recursive_backtracking import recursive_backtracking
+from algorithms.prims import prims
+from algorithms.recursive_backtracking import recursive_backtracking
 
 
 def main():
