@@ -36,7 +36,7 @@ def prims(screen, clock):
         upcoming_cells.remove((current_cell.x, current_cell.y))
         pygame.display.update()
 
-        add_upcoming_cells(current_cell, upcoming_cells, visited)  # TODO: only add unvisited cells once
+        add_upcoming_cells(current_cell, upcoming_cells, visited)
         maze[current_cell.x][current_cell.y] = current_cell
 
 
@@ -45,14 +45,15 @@ def add_upcoming_cells(current_cell, upcoming_cells, visited):
     neighbours = algo_utils.get_unvisited_neighbours(current_cell.neighbours, visited)
     for n in neighbours:
         x, y = n
-        if not visited[x][y] and (x, y) not in upcoming_cells: upcoming_cells.append(n)
+        if not visited[x][y] and (x, y) not in upcoming_cells:
+            upcoming_cells.append(n)
 
 
 # Get the direction of a randomly selected visited adjacent cell
 def get_random_adj_cell_direction(x, y, maze):
-    unvisited_adj_cells = algo_utils.get_neighbours(x, y, True)
+    adj_cells = algo_utils.get_neighbours(x, y, True)
     adj_cell_direction = []
-    for (x, y, direction) in unvisited_adj_cells:
+    for (x, y, direction) in adj_cells:
         if maze[x][y] != 0:
             adj_cell_direction.append(direction)
     return adj_cell_direction[random.randint(0, len(adj_cell_direction) - 1)]

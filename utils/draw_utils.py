@@ -20,12 +20,12 @@ def draw_2d_grid(screen):
         pygame.draw.line(screen, c.BLACK, (c.start_x, start_y_line), (c.start_x + c.maze_width, start_y_line))
 
 
-def draw_algo_button(screen, button_start_x, button_end_x, algo_name):
-    pygame.draw.rect(screen, c.BLACK, (button_start_x, c.button_start_y,
-                                       button_end_x, c.button_height), 1)
+def draw_algo_button(screen, start_x, end_x, start_y, end_y, algo_name):
+    pygame.draw.rect(screen, c.BLACK, (start_x, start_y,
+                                       end_x, end_y), 1)
     small_text = pygame.font.Font("freesansbold.ttf", 17)
     text_surf, text_rect = text_objects(algo_name, small_text)
-    text_rect.center = ((button_start_x + (c.button_width / 2)), (c.button_start_y + (c.button_height / 2)))
+    text_rect.center = ((start_x + (end_x / 2)), (start_y + (end_y / 2)))
     screen.blit(text_surf, text_rect)
 
 

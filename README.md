@@ -8,10 +8,10 @@ Pygame was used to visualize the process.
 - [ ] Hunt and kill
 - [ ] Kruskal 
 - [ ] Binary tree 
-- [ ] Recrusive division
+- [ ] Recursive division
 
 ### How to run
-Download the packages in the requirements file. You will need pygame:
+Download the packages in the requirements file:
 
 
     pip install -r requirements.txt
