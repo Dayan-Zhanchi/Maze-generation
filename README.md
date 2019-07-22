@@ -11,10 +11,10 @@ Pygame was used to visualize the process.
 - [ ] Recrusive division
 
 ### How to run
-Download Pygame if you don't already have it:
+Download the packages in the requirements file. You will need pygame and numpy:
 
 
-    pip install pygame
+    pip install -r requirements.txt
 
 
 To start the screen run the following command:
@@ -27,10 +27,10 @@ When the screen appears with a 2D grid, press either button to start the maze ge
 click either buttons again when the current generation has finished. The different buttons represent the different algorithms.
 
 
-You can also press p for activating prims algorithm or r for recursive backtracking.
+You can also press `p` for activating prims algorithm or `r` for recursive backtracking.
 
 
-To exit simply click on the x on the upper right corner of the screen.
+To exit simply click on the `x` on the upper right corner of the screen or press `escape`.
 
 ### Maze generation with recursive backtracking
 ![Maze generation visualization RB](./assets/RB%20maze%20generation.gif)

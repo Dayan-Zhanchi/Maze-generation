@@ -17,14 +17,10 @@ class MazeDrawer:
         while running:
             self.handle_button_event(clock, screen)
             for event in pygame.event.get():
-                if event.type == pygame.KEYDOWN:
-                    if pygame.key.get_pressed()[pygame.K_p]:
-                        self.run_algorithm(screen, clock, 'Prims')
-                    elif pygame.key.get_pressed()[pygame.K_r]:
-                        self.run_algorithm(screen, clock, 'Recursive backtracking')
-                    elif pygame.key.get_pressed()[pygame.K_ESCAPE]:
-                        running = False
-        pygame.display.quit()
+                if event.type == pygame.QUIT:
+                    running = False
+                running = self.handle_keydowns(clock, event, running, screen)
+        pygame.quit()
 
     @staticmethod
     def init_game_screen():
@@ -47,6 +43,16 @@ class MazeDrawer:
             elif c.button_start_x + c.button_width + c.button_offset_x <= mouse[0] <= c.button_start_x + c.button_width + c.button_offset_x + c.button_width and \
                     c.button_start_y <= mouse[1] <= c.button_start_y + c.button_height:
                 self.run_algorithm(screen, clock, 'Recursive backtracking')
+
+    def handle_keydowns(self, clock, event, running, screen):
+        if event.type == pygame.KEYDOWN:
+            if pygame.key.get_pressed()[pygame.K_p]:
+                self.run_algorithm(screen, clock, 'Prims')
+            elif pygame.key.get_pressed()[pygame.K_r]:
+                self.run_algorithm(screen, clock, 'Recursive backtracking')
+            elif pygame.key.get_pressed()[pygame.K_ESCAPE]:
+                running = False
+        return running
 
     def run_algorithm(self, screen, clock, algorithm):
         # Reset maze to initial state before running algo
