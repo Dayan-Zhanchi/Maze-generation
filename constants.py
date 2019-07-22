@@ -20,7 +20,7 @@ start_y = margin_height
 
 # Maximum frames per second
 frames_rb = 150
-frames_prim = 800
+frames_prim = 450
 
 # buttons
 text_rb = "Recursive backtracking"

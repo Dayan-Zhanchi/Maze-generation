@@ -23,10 +23,18 @@ To start the screen run the following command:
     py main.py
 
 
-When the screen appears with a 2D grid, press s to start the maze generation. To generate a new maze simply
-click s again when the current generation has finished.
+When the screen appears with a 2D grid, press either button to start the maze generation. To generate a new maze simply
+click either buttons again when the current generation has finished. The different buttons represent the different algorithms.
+
+
+You can also press p for activating prims algorithm or r for recursive backtracking.
 
 
 To exit simply click on the x on the upper right corner of the screen.
 
-![Maze generation visualization](maze_generator.gif)
+### Maze generation with recursive backtracking
+![Maze generation visualization RB](RB%20maze%20generation.gif)
+
+
+### Maze generation with Prims algorithm
+![Maze generation visualization Prims](prims%20maze%20generation.gif)

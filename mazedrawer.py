@@ -7,7 +7,6 @@ class MazeDrawer:
     def __init__(self, maze_generation_algorithm):
         self.maze_generation_algorithms = maze_generation_algorithm
 
-    # start generating a randomly constructed maze
     def start_game_loop(self):
         screen = self.init_game_screen()
         pygame.display.update()
@@ -38,6 +37,7 @@ class MazeDrawer:
                                c.button_width, "RB")
         return screen
 
+    @staticmethod
     def draw_2d_grid(screen):
         pygame.draw.rect(screen, c.BLACK, (c.start_x, c.start_y, c.maze_width, c.maze_height), 1)
         # draw the vertical lines
@@ -49,8 +49,8 @@ class MazeDrawer:
             start_y_line = c.start_y + int(c.maze_height / c.number_of_horizontal_lines) * i
             pygame.draw.line(screen, c.BLACK, (c.start_x, start_y_line), (c.start_x + c.maze_width, start_y_line))
 
+    @staticmethod
     def draw_algo_buttons(screen, button_start_x, button_end_x, algo_name):
-        # draw button for triggering prims algorithm
         pygame.draw.rect(screen, c.BLACK, (button_start_x, c.button_start_y,
                                            button_end_x, c.button_height), 1)
         small_text = pygame.font.Font("freesansbold.ttf", 17)
@@ -58,6 +58,7 @@ class MazeDrawer:
         text_rect.center = ((button_start_x + (c.button_width / 2)), (c.button_start_y + (c.button_height / 2)))
         screen.blit(text_surf, text_rect)
 
+    @staticmethod
     def text_objects(text, font):
         text_surface = font.render(text, True, c.BLACK)
         return text_surface, text_surface.get_rect()
@@ -71,7 +72,6 @@ class MazeDrawer:
                 self.run_algorithm(screen, clock, 'Prims')
             elif c.button_start_x + c.button_width + c.button_offset_x <= mouse[0] <= c.button_start_x + c.button_width + c.button_offset_x + c.button_width and \
                     c.button_start_y <= mouse[1] <= c.button_start_y + c.button_height:
-                # Reset maze to initial state
                 self.run_algorithm(screen, clock, 'Recursive backtracking')
 
     def run_algorithm(self, screen, clock, algorithm):
