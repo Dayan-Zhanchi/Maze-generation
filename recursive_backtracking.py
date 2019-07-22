@@ -1,9 +1,11 @@
 import utils
 import pygame
+import cell as ce
 import constants as c
 
 
-def recursive_backtracking(screen, clock, grid):
+def recursive_backtracking(screen, clock):
+    grid = [[ce.Cell((i, j), utils.get_neighbours(i, j, True)) for j in range(c.number_of_vertical_lines)] for i in range(c.number_of_horizontal_lines)]
     visited = [[0 for _ in range(c.number_of_vertical_lines)] for _ in range(c.number_of_horizontal_lines)]
     current_cell = grid[0][0]
     stack = [current_cell]

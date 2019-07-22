@@ -1,11 +1,17 @@
 import utils
 import pygame
 import random
+import cell as ce
 import numpy as np
 import constants as c
 
+""" Since there are no weights in the cells the modification of Prims is that we only randomly select the upcoming cells.
+    The removal of lines is done by randomly selecting the direction of an adjacent cell to the current cell
+"""
 
-def prims(screen, clock, grid):
+def prims(screen, clock):
+    grid = [[ce.Cell((i, j), utils.get_neighbours(i, j, False)) for j in range(c.number_of_vertical_lines)]
+            for i in range(c.number_of_horizontal_lines)]
     visited = [[0 for _ in range(c.number_of_vertical_lines)] for _ in range(c.number_of_horizontal_lines)]
     x, y = random.randint(0, c.number_of_horizontal_lines - 1), random.randint(0, c.number_of_vertical_lines - 1)
     current_cell = grid[x][y]
@@ -28,17 +34,17 @@ def prims(screen, clock, grid):
         upcoming_cells.remove((current_cell.x, current_cell.y))
         pygame.display.update()
 
-        add_upcoming_cells(current_cell, upcoming_cells, visited)  # there may be dead ends, hopefully that will be okay
+        add_upcoming_cells(current_cell, upcoming_cells, visited)
         maze[current_cell.x][current_cell.y] = current_cell
 
-
+# Add unvisited adjacent cells
 def add_upcoming_cells(current_cell, upcoming_cells, visited):
     neighbours = utils.get_unvisited_neighbours(current_cell.neighbours, visited)
     for n in neighbours:
         x, y = n
         if not visited[x][y]: upcoming_cells.append(n)
 
-
+# Get the direction of a randomly selected visited adjacent cell
 def get_random_adj_cell_direction(x, y, maze):
     unvisited_adj_cells = utils.get_neighbours(x, y, True)
     adj_cell_direction = []

@@ -57,10 +57,14 @@ def remove_line(screen, current_cell_x, current_cell_y, direction):
     start_y_line = c.start_y + grid_size_y * current_cell_y  # start y position of the current cell
 
     if direction == 'N':
-        pygame.draw.line(screen, c.WHITE, (start_x_line + offset, start_y_line), (start_x_line + grid_size_x - offset, start_y_line))
+        pygame.draw.line(screen, c.WHITE, (start_x_line + offset, start_y_line),
+                         (start_x_line + grid_size_x - offset, start_y_line))
     elif direction == 'E':
-        pygame.draw.line(screen, c.WHITE, (start_x_line + grid_size_x, start_y_line + offset), (start_x_line + grid_size_x, start_y_line + grid_size_y - offset))
+        pygame.draw.line(screen, c.WHITE, (start_x_line + grid_size_x, start_y_line + offset),
+                         (start_x_line + grid_size_x, start_y_line + grid_size_y - offset))
     elif direction == 'S':
-        pygame.draw.line(screen, c.WHITE, (start_x_line + offset, start_y_line + grid_size_y), (start_x_line + grid_size_x - offset, start_y_line + grid_size_y))
+        pygame.draw.line(screen, c.WHITE, (start_x_line + offset, start_y_line + grid_size_y),
+                         (start_x_line + grid_size_x - offset, start_y_line + grid_size_y))
     else:
-        pygame.draw.line(screen, c.WHITE, (start_x_line, start_y_line + offset), (start_x_line, start_y_line + grid_size_y - offset))
+        pygame.draw.line(screen, c.WHITE, (start_x_line, start_y_line + offset),
+                         (start_x_line, start_y_line + grid_size_y - offset))

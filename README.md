@@ -1,6 +1,14 @@
 # Maze-generation
-Simple maze generation using [recursive backtracking](https://en.wikipedia.org/wiki/Maze_generation_algorithm).
+Maze generation using different [maze algorithms](https://en.wikipedia.org/wiki/Maze_generation_algorithm).
 Pygame was used to visualize the process.
+
+### List of maze algorithms progression
+- [x] Recursive backtracking 
+- [x] Prims 
+- [ ] Hunt and kill
+- [ ] Kruskal 
+- [ ] Binary tree 
+- [ ] Recrusive division
 
 ### How to run
 Download Pygame if you don't already have it:
