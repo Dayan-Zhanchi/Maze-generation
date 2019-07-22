@@ -1,8 +1,8 @@
-import utils.draw_utils
-from utils import algo_utils
 import pygame
 import cell as ce
 import constants as c
+import utils.draw_utils
+from utils import algo_utils
 
 
 def recursive_backtracking(screen, clock):

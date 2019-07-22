@@ -11,7 +11,7 @@ Pygame was used to visualize the process.
 - [ ] Recrusive division
 
 ### How to run
-Download the packages in the requirements file. You will need pygame and numpy:
+Download the packages in the requirements file. You will need pygame:
 
 
     pip install -r requirements.txt

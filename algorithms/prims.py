@@ -5,7 +5,8 @@ import constants as c
 import utils.draw_utils
 from utils import algo_utils
 
-""" Since there are no weights in the cells the modification of Prims is that we only randomly select the upcoming cells.
+""" 
+    Since there are no weights in the cells the modification of Prims is that we only randomly select the upcoming cells.
     The removal of lines is done by randomly selecting the direction of an adjacent cell to the current cell
 """
 
@@ -35,7 +36,7 @@ def prims(screen, clock):
         upcoming_cells.remove((current_cell.x, current_cell.y))
         pygame.display.update()
 
-        add_upcoming_cells(current_cell, upcoming_cells, visited) # TODO: only add unvisited cells once
+        add_upcoming_cells(current_cell, upcoming_cells, visited)  # TODO: only add unvisited cells once
         maze[current_cell.x][current_cell.y] = current_cell
 
 
@@ -44,7 +45,7 @@ def add_upcoming_cells(current_cell, upcoming_cells, visited):
     neighbours = algo_utils.get_unvisited_neighbours(current_cell.neighbours, visited)
     for n in neighbours:
         x, y = n
-        if not visited[x][y] and (x,y) not in upcoming_cells: upcoming_cells.append(n)
+        if not visited[x][y] and (x, y) not in upcoming_cells: upcoming_cells.append(n)
 
 
 # Get the direction of a randomly selected visited adjacent cell
