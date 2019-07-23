@@ -18,7 +18,8 @@ def hunt_and_kill(screen, clock):
         unvisited_neighbours = algo_utils.get_unvisited_neighbours(current_cell.neighbours, visited)
         if unvisited_neighbours:
             x, y, direction = algo_utils.get_random_cell(unvisited_neighbours)
-            du.remove_line(screen, x, y, direction)
+            du.remove_line(screen, current_cell.x, current_cell.y,
+                           direction)  # remove line from the current cell and not from the unvisited neighbour
             current_cell = grid[x][y]
         else:
             hunt, (x, y) = hunt_scan(grid, visited)
