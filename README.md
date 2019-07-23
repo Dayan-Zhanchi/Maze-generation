@@ -5,7 +5,7 @@ Pygame was used to visualize the process.
 ### List of maze algorithms progression
 - [x] Recursive backtracking 
 - [x] Prims 
-- [ ] Hunt and kill
+- [x] Hunt and kill
 - [ ] Kruskal 
 - [ ] Binary tree 
 - [ ] Recursive division
@@ -27,14 +27,24 @@ When the screen appears with a 2D grid, press either button to start the maze ge
 click either buttons again when the current generation has finished. The different buttons represent the different algorithms.
 
 
-You can also press `p` for activating prims algorithm or `r` for recursive backtracking.
+### Commands
+You can also use commands to start the generation or exit the screen.
 
 
-To exit simply click on the `x` on the upper right corner of the screen or press `escape`.
+| Command | Description |
+| ------- | ----------- |
+| `p` | Run Prims algorithm |
+| `r` | Run recursive backtracking |
+| `h` | Run hunt and kill|
+| `esc` | Exit |
+
 
 ### Maze generation with recursive backtracking
 ![Maze generation visualization RB](./assets/RB%20maze%20generation.gif)
 
 
-### Maze generation with Prims algorithm
+### Maze generation with Prims 
 ![Maze generation visualization Prims](./assets/prims%20maze%20generation.gif)
+
+### Maze generation with hunt and kill
+![Maze generation visualization hunt and kill](./assets/hak%20generation.gif)
