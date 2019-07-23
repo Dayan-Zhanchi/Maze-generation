@@ -35,24 +35,23 @@ class MazeDrawer:
     @staticmethod
     def initialize_algo_buttons(screen):
         algo_buttons = []
-        algo_buttons.append(b.Button(screen, c.button_start_x, c.button_width,
-                                     c.button_start_y, c.button_height,
-                                     c.button_offset_x, c.button_offset_y, "Prims"))
-        algo_buttons.append(b.Button(screen, c.button_start_x + c.button_width + c.button_offset_x,
-                                     c.button_width, c.button_start_y, c.button_height,
-                                     c.button_offset_x, c.button_offset_y, 'RB'))
-        algo_buttons.append(b.Button(screen, c.button_start_x + c.button_width * 2 + c.button_offset_x * 2,
-                                     c.button_width, c.button_start_y, c.button_height,
-                                     c.button_offset_x, c.button_offset_y, 'HAK'))
-        algo_buttons.append(b.Button(screen, c.button_start_x, c.button_width,
-                                     c.button_start_y + c.button_height + c.button_offset_y, c.button_height,
-                                     c.button_offset_x, c.button_offset_y, "Kruskal"))
-        algo_buttons.append(b.Button(screen, c.button_start_x + c.button_width + c.button_offset_x,
-                                     c.button_width, c.button_start_y + c.button_height + c.button_offset_y, c.button_height,
-                                     c.button_offset_x, c.button_offset_y, 'BT'))
-        algo_buttons.append(b.Button(screen, c.button_start_x + c.button_width * 2 + c.button_offset_x * 2,
-                                     c.button_width, c.button_start_y + c.button_height + c.button_offset_y, c.button_height,
-                                     c.button_offset_x, c.button_offset_y, 'RD'))
+        button_1_start_x = c.button_start_x
+        button_2_start_x = button_1_start_x + c.button_width + c.button_offset_x
+        button_3_start_x = button_1_start_x + c.button_width * 2 + c.button_offset_x * 2
+        second_row_buttons_start_y = c.button_start_y + c.button_height + c.button_offset_y
+
+        algo_buttons.append(b.Button(screen, button_1_start_x, c.button_width,
+                                     c.button_start_y, c.button_height, c.text_prim))
+        algo_buttons.append(b.Button(screen, button_2_start_x, c.button_width,
+                                     c.button_start_y, c.button_height, c.text_rb))
+        algo_buttons.append(b.Button(screen, button_3_start_x, c.button_width,
+                                     c.button_start_y, c.button_height, c.text_hunt_and_kill))
+        algo_buttons.append(b.Button(screen, button_1_start_x, c.button_width,
+                                     second_row_buttons_start_y, c.button_height, c.text_kurskal))
+        algo_buttons.append(b.Button(screen, button_2_start_x, c.button_width,
+                                     second_row_buttons_start_y, c.button_height, c.text_binary_tree))
+        algo_buttons.append(b.Button(screen, button_3_start_x, c.button_width,
+                                     second_row_buttons_start_y, c.button_height, c.text_recursive_division))
         return algo_buttons
 
     def handle_button_event(self, clock, screen, algo_buttons):
@@ -69,6 +68,8 @@ class MazeDrawer:
                 self.run_algorithm(screen, clock, 'Prims')
             elif pygame.key.get_pressed()[pygame.K_r]:
                 self.run_algorithm(screen, clock, 'RB')
+            elif pygame.key.get_pressed()[pygame.K_h]:
+                self.run_algorithm(screen, clock, 'HAK')
             elif pygame.key.get_pressed()[pygame.K_ESCAPE]:
                 running = False
         return running

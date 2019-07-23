@@ -1,3 +1,4 @@
+# TODO: Refactor constant file into different constant file instead of having a big file
 # lines for the grid
 number_of_horizontal_lines = 20
 number_of_vertical_lines = 20
@@ -21,6 +22,7 @@ start_y = margin_height
 # Maximum frames per second
 frames_rb = 150
 frames_prim = 150
+frames_hunt_and_kill = 150
 
 # buttons
 text_rb = "RB"
