@@ -5,7 +5,7 @@ number_of_vertical_lines = 20
 
 # dimensions for the game screen
 canvas_width = 600
-canvas_height = 800
+canvas_height = 950
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -15,7 +15,7 @@ maze_height = 500
 
 # the offsets needed to place the maze in the very middle of the game screen
 margin_width = int((canvas_width - maze_width) / 2)
-margin_height = int((canvas_height - maze_height) / 4)  # 4 because want the maze closer to the upper screen
+margin_height = int((canvas_height - maze_height) / 6)  # 4 because want the maze closer to the upper screen
 start_x = margin_width
 start_y = margin_height
 
@@ -23,6 +23,7 @@ start_y = margin_height
 frames_rb = 150
 frames_prim = 150
 frames_hunt_and_kill = 150
+frames_binary_tree = 150
 
 # buttons
 text_rb = "RB"
