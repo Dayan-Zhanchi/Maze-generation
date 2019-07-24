@@ -70,6 +70,8 @@ class MazeDrawer:
                 self.run_algorithm(screen, clock, 'RB')
             elif pygame.key.get_pressed()[pygame.K_h]:
                 self.run_algorithm(screen, clock, 'HAK')
+            elif pygame.key.get_pressed()[pygame.K_b]:
+                self.run_algorithm(screen, clock, 'BT')
             elif pygame.key.get_pressed()[pygame.K_ESCAPE]:
                 running = False
         return running

@@ -23,7 +23,6 @@ def recursive_backtracking(screen, clock):
             # removing line of a grid to make the maze
             utils.draw_utils.remove_line(screen, current_cell.x, current_cell.y, direction)
             current_cell = next_cell
-            pygame.display.update()
         elif stack:
             # reached a dead end so we backtrack, the stack keeps track of previous cells
             current_cell = stack.pop()

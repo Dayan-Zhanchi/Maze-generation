@@ -34,7 +34,6 @@ def prims(screen, clock):
         direction = algo_utils.get_random_adj_cell_direction(current_cell.x, current_cell.y, maze)
         utils.draw_utils.remove_line(screen, current_cell.x, current_cell.y, direction)
         upcoming_cells.remove((current_cell.x, current_cell.y))
-        pygame.display.update()
 
         add_upcoming_cells(current_cell, upcoming_cells, visited)
         maze[current_cell.x][current_cell.y] = current_cell

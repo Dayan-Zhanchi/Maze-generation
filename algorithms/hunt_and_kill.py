@@ -28,8 +28,6 @@ def hunt_and_kill(screen, clock):
                 current_cell = grid[x][y]
             else:
                 break
-        pygame.display.update()
-
 
 def hunt_scan(grid, visited):
     cell = (0, 0)

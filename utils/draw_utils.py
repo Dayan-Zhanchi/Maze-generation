@@ -53,3 +53,5 @@ def remove_line(screen, current_cell_x, current_cell_y, direction):
     else:
         pygame.draw.line(screen, c.WHITE, (start_x_line, start_y_line + offset),
                          (start_x_line, start_y_line + grid_size_y - offset))
+
+    pygame.display.update()
