@@ -5,7 +5,7 @@ number_of_vertical_lines = 20
 
 # dimensions for the game screen
 canvas_width = 600
-canvas_height = 950
+canvas_height = 900
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -24,6 +24,7 @@ frames_rb = 150
 frames_prim = 150
 frames_hunt_and_kill = 150
 frames_binary_tree = 150
+frames_growing_tree = 200
 
 # buttons
 text_rb = "RB"
@@ -32,6 +33,7 @@ text_hunt_and_kill = "HAK"
 text_kurskal = "Kruskal"
 text_binary_tree = "BT"
 text_recursive_division = "RD"
+text_growing_tree = "GT"
 button_width = int(maze_width / 6)  # button width have to be at least button_width < maze_width / 3
 button_height = int((canvas_height - start_y - maze_height) / 10) + 20 # the 10 in the division is experimental, seems like a nice balance for the height of the button
 button_offset_x = int((maze_width - button_width * 3) / 4)  # divide with 4 because there will be 4 offsets in total (since we have 3 buttons) and we want equal length for each offset

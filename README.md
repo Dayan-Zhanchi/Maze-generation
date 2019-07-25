@@ -1,7 +1,5 @@
 # Maze-generation
-Maze generation using different [maze algorithms](https://en.wikipedia.org/wiki/Maze_generation_algorithm). A very good resource with
-in depth explanations and also visualizations can be found [here](http://weblog.jamisbuck.org/2011/2/7/maze-generation-algorithm-recap).
-However, I created my own visualizations and went with my own interpretations of the maze algorithms. Pygame was used to visualize the process.
+Maze generation using different [maze algorithms](https://en.wikipedia.org/wiki/Maze_generation_algorithm). Pygame was used to visualize the maze generation process.
 
 ### List of maze algorithms progression
 - [x] Recursive backtracking 
@@ -9,7 +7,7 @@ However, I created my own visualizations and went with my own interpretations of
 - [x] Hunt and kill
 - [ ] Kruskal 
 - [x] Binary tree 
-- [ ] Recursive division
+- [x] Growing tree
 
 ### How to run
 Download the packages in the requirements file:
@@ -38,6 +36,7 @@ You can also use commands to start the generation or exit the screen.
 | `r` | Run Recursive backtracking |
 | `h` | Run Hunt and kill |
 | `b` | Run Binary tree |
+| `g` | Run Growing tree |
 | `esc` | Exit |
 
 
@@ -52,3 +51,6 @@ You can also use commands to start the generation or exit the screen.
 
 ### Binary tree
 ![Maze generation visualization binary tree](./assets/BT%20generation.gif)
+
+### Growing tree
+![Maze generation visualization growing tree](./assets/GT%20generation.gif)

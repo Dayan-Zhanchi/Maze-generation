@@ -1,4 +1,3 @@
-import pygame
 import random
 import cell as ce
 import constants as c

@@ -35,6 +35,8 @@ class MazeDrawer:
     @staticmethod
     def initialize_algo_buttons(screen):
         algo_buttons = []
+        # TODO: Perhaps create a class that wraps the relevant parameters for the button
+        #  creation, may be less messy and shorten the code
         button_1_start_x = c.button_start_x
         button_2_start_x = button_1_start_x + c.button_width + c.button_offset_x
         button_3_start_x = button_1_start_x + c.button_width * 2 + c.button_offset_x * 2
@@ -51,7 +53,7 @@ class MazeDrawer:
         algo_buttons.append(b.Button(screen, button_2_start_x, c.button_width,
                                      second_row_buttons_start_y, c.button_height, c.text_binary_tree))
         algo_buttons.append(b.Button(screen, button_3_start_x, c.button_width,
-                                     second_row_buttons_start_y, c.button_height, c.text_recursive_division))
+                                     second_row_buttons_start_y, c.button_height, c.text_growing_tree))
         return algo_buttons
 
     def handle_button_event(self, clock, screen, algo_buttons):
@@ -72,6 +74,8 @@ class MazeDrawer:
                 self.run_algorithm(screen, clock, 'HAK')
             elif pygame.key.get_pressed()[pygame.K_b]:
                 self.run_algorithm(screen, clock, 'BT')
+            elif pygame.key.get_pressed()[pygame.K_g]:
+                self.run_algorithm(screen, clock, 'GT')
             elif pygame.key.get_pressed()[pygame.K_ESCAPE]:
                 running = False
         return running

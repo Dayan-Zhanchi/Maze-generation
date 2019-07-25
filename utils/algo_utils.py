@@ -2,13 +2,13 @@ import random
 import constants as c
 
 
-def get_random_cell(unvisited_neighbours):
-    if len(unvisited_neighbours) > 1:
-        return unvisited_neighbours[random.randint(0, len(unvisited_neighbours) - 1)]
-    return unvisited_neighbours[0]
+# TODO: Refactor entire file to use inheritance
+def get_random_cell(cells):
+    if len(cells) > 1:
+        return cells[random.randint(0, len(cells) - 1)]
+    return cells[0]
 
 
-# TODO: Should be optimized to get unvisited neighbours given a cells x and y coordinate
 def get_unvisited_neighbours(neighbours, visited):
     unvisited_neighbours = []
     for neighbour in neighbours:

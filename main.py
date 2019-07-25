@@ -3,6 +3,7 @@ from algorithms.prims import prims
 from algorithms.binary_tree import binary_tree
 from algorithms.recursive_backtracking import recursive_backtracking
 from algorithms.hunt_and_kill import hunt_and_kill
+from algorithms.growing_tree import growing_tree
 
 
 def main():
@@ -11,7 +12,7 @@ def main():
         "RB": recursive_backtracking,
         "HAK": hunt_and_kill,
         "BT": binary_tree,
-        "HAK": hunt_and_kill
+        "GT": growing_tree
     }
     md.MazeDrawer(algorithms).start_game_loop()
 
