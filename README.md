@@ -5,7 +5,7 @@ Maze generation using different [maze algorithms](https://en.wikipedia.org/wiki/
 - [x] Recursive backtracking 
 - [x] Prims 
 - [x] Hunt and kill
-- [ ] Kruskal 
+- [x] Kruskal 
 - [x] Binary tree 
 - [x] Growing tree
 
@@ -37,20 +37,24 @@ You can also use commands to start the generation or exit the screen.
 | `h` | Run Hunt and kill |
 | `b` | Run Binary tree |
 | `g` | Run Growing tree |
+| `k` | Run Kruskal |
 | `esc` | Exit |
 
 
 ### Recursive backtracking
-![Maze generation visualization RB](./assets/RB%20maze%20generation.gif)
+![Maze generation visualization RB](assets/RB%20maze%20generation.gif)
 
 ### Prims 
-![Maze generation visualization Prims](./assets/prims%20maze%20generation.gif)
+![Maze generation visualization Prims](assets/prims%20%20generation.gif)
 
 ### Hunt and kill
-![Maze generation visualization hunt and kill](./assets/hak%20generation.gif)
+![Maze generation visualization hunt and kill](assets/hak%20generation.gif)
 
 ### Binary tree
-![Maze generation visualization binary tree](./assets/BT%20generation.gif)
+![Maze generation visualization binary tree](assets/BT%20generation.gif)
 
 ### Growing tree
-![Maze generation visualization growing tree](./assets/GT%20generation.gif)
+![Maze generation visualization growing tree](assets/GT%20generation.gif)
+
+### Kruskal
+![Maze generation visualization kruskal](assets/kruskal%20generation.gif)
