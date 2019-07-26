@@ -41,6 +41,7 @@ You can also use commands to start the generation or exit the screen. Additional
 | `b` | Run Binary tree |
 | `g` | Run Growing tree |
 | `k` | Run Kruskal |
+| `s` | Run recursive backtracking pathfinder (thus far only works if maze was generated with r) |
 | `esc` | Exit |
 
 
