@@ -1,5 +1,8 @@
 # Maze-generation
-Maze generation using different [maze algorithms](https://en.wikipedia.org/wiki/Maze_generation_algorithm). Pygame was used to visualize the maze generation process.
+Maze generation using different [maze algorithms](https://en.wikipedia.org/wiki/Maze_generation_algorithm). Additionally, a simple recursive backtracking pathfinder was also implemented. 
+Thus far it's only working with mazes that was genereted with recursive backtracking. The start point is always at the upper left corner and the end point is at the lower right corner.
+
+Pygame was used to visualize the maze generation and the pathfinding process.
 
 ### List of maze algorithms progression
 - [x] Recursive backtracking 
@@ -27,7 +30,7 @@ click either buttons again when the current generation has finished. The differe
 
 
 ### Commands
-You can also use commands to start the generation or exit the screen.
+You can also use commands to start the generation or exit the screen. Additionally there's a pathfinder
 
 
 | Command | Description |
@@ -58,3 +61,6 @@ You can also use commands to start the generation or exit the screen.
 
 ### Kruskal
 ![Maze generation visualization kruskal](assets/kruskal%20generation.gif)
+
+### Recursive backtracking pathfinder
+![Maze pathfinder visualization RB](assets/RB%20pathfinder.gif)

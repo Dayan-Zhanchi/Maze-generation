@@ -9,6 +9,7 @@ canvas_height = 900
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
+GREEN = (63, 174, 109)
 
 maze_width = 500
 maze_height = 500
@@ -20,6 +21,11 @@ margin_height = int((canvas_height - maze_height) / 6)
 start_x = margin_width
 start_y = margin_height
 
+# offset is needed to avoid creating white pixels around the very beginning and end of an erased line
+offset = 1
+grid_size_x = int(maze_width / number_of_vertical_lines)
+grid_size_y = int(maze_height / number_of_horizontal_lines)
+
 # Maximum frames per second
 frames_rb = 150
 frames_prim = 150
@@ -27,6 +33,7 @@ frames_hunt_and_kill = 150
 frames_binary_tree = 150
 frames_growing_tree = 200
 frames_kruskal = 400
+frames_rb_pathfinder = 150
 
 # buttons
 text_rb = "RB"

@@ -9,7 +9,9 @@ def create_canvas():
 
 
 def draw_2d_grid(screen):
-    pygame.draw.rect(screen, c.BLACK, (c.start_x, c.start_y, c.maze_width, c.maze_height), 1)
+    dimen_params_for_grid = (c.start_x, c.start_y, c.maze_width, c.maze_height)
+    pygame.draw.rect(screen, c.WHITE, dimen_params_for_grid)
+    pygame.draw.rect(screen, c.BLACK, dimen_params_for_grid, 1)
     # draw the vertical lines
     for i in range(1, c.number_of_vertical_lines):
         start_x_line = c.start_x + int(c.maze_width / c.number_of_vertical_lines) * i
@@ -20,12 +22,12 @@ def draw_2d_grid(screen):
         pygame.draw.line(screen, c.BLACK, (c.start_x, start_y_line), (c.start_x + c.maze_width, start_y_line))
 
 
-def draw_algo_button(screen, start_x, end_x, start_y, end_y, algo_name):
+def draw_algo_button(screen, start_x, button_width, start_y, button_height, algo_name):
     pygame.draw.rect(screen, c.BLACK, (start_x, start_y,
-                                       end_x, end_y), 1)
+                                       button_width, button_height), 1)
     small_text = pygame.font.Font("freesansbold.ttf", 17)
     text_surf, text_rect = text_objects(algo_name, small_text)
-    text_rect.center = ((start_x + (end_x / 2)), (start_y + (end_y / 2)))
+    text_rect.center = ((start_x + (button_width / 2)), (start_y + (button_height / 2)))
     screen.blit(text_surf, text_rect)
 
 
@@ -34,24 +36,30 @@ def text_objects(text, font):
     return text_surface, text_surface.get_rect()
 
 
-def remove_line(screen, current_cell_x, current_cell_y, direction):
-    offset = 1  # offset is needed to avoid creating white pixels around the very beginning and end of an erased line
-    grid_size_x = int(c.maze_width / c.number_of_vertical_lines)
-    grid_size_y = int(c.maze_height / c.number_of_horizontal_lines)
-    start_x_line = c.start_x + grid_size_x * current_cell_x  # start x position of the current cell
-    start_y_line = c.start_y + grid_size_y * current_cell_y  # start y position of the current cell
+def remove_line(screen, x, y, direction):
+    start_x_line = c.start_x + c.grid_size_x * x  # start x position of the current cell
+    start_y_line = c.start_y + c.grid_size_y * y  # start y position of the current cell
 
     if direction == 'N':
-        pygame.draw.line(screen, c.WHITE, (start_x_line + offset, start_y_line),
-                         (start_x_line + grid_size_x - offset, start_y_line))
+        pygame.draw.line(screen, c.WHITE, (start_x_line + c.offset, start_y_line),
+                         (start_x_line + c.grid_size_x - c.offset, start_y_line))
     elif direction == 'E':
-        pygame.draw.line(screen, c.WHITE, (start_x_line + grid_size_x, start_y_line + offset),
-                         (start_x_line + grid_size_x, start_y_line + grid_size_y - offset))
+        pygame.draw.line(screen, c.WHITE, (start_x_line + c.grid_size_x, start_y_line + c.offset),
+                         (start_x_line + c.grid_size_x, start_y_line + c.grid_size_y - c.offset))
     elif direction == 'S':
-        pygame.draw.line(screen, c.WHITE, (start_x_line + offset, start_y_line + grid_size_y),
-                         (start_x_line + grid_size_x - offset, start_y_line + grid_size_y))
+        pygame.draw.line(screen, c.WHITE, (start_x_line + c.offset, start_y_line + c.grid_size_y),
+                         (start_x_line + c.grid_size_x - c.offset, start_y_line + c.grid_size_y))
     else:
-        pygame.draw.line(screen, c.WHITE, (start_x_line, start_y_line + offset),
-                         (start_x_line, start_y_line + grid_size_y - offset))
+        pygame.draw.line(screen, c.WHITE, (start_x_line, start_y_line + c.offset),
+                         (start_x_line, start_y_line + c.grid_size_y - c.offset))
 
+    pygame.display.update()
+
+
+def color_cell(screen, color, x, y):
+    start_x_line = c.start_x + c.grid_size_x * x  # start x position of the current cell
+    start_y_line = c.start_y + c.grid_size_y * y  # start y position of the current cell
+    circle_x = start_x_line + (int(c.grid_size_x / 2))  # middle of the cell x
+    circle_j = start_y_line + (int(c.grid_size_y / 2))  # middle of the cell y
+    pygame.draw.circle(screen, color, (circle_x, circle_j), int((c.grid_size_x + c.grid_size_y) / 8))
     pygame.display.update()
