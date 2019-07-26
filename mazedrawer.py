@@ -6,8 +6,10 @@ from utils import draw_utils as du
 
 class MazeDrawer:
 
-    def __init__(self, maze_generation_algorithm):
+    def __init__(self, maze_generation_algorithm, pathfinder_algorithm):
         self.maze_generation_algorithms = maze_generation_algorithm
+        self.pathfinder_algorithm = pathfinder_algorithm
+        self.maze = []
 
     def start_game_loop(self):
         pygame.init()
@@ -78,6 +80,8 @@ class MazeDrawer:
                 self.run_algorithm(screen, clock, 'BT')
             elif pygame.key.get_pressed()[pygame.K_g]:
                 self.run_algorithm(screen, clock, 'GT')
+            elif pygame.key.get_pressed()[pygame.K_s]:
+                self.pathfinder_algorithm(screen, clock, self.maze)
             elif pygame.key.get_pressed()[pygame.K_ESCAPE]:
                 running = False
         return running
@@ -85,4 +89,4 @@ class MazeDrawer:
     def run_algorithm(self, screen, clock, algorithm):
         # Reset maze to initial state before running algo
         du.draw_2d_grid(screen)
-        self.maze_generation_algorithms[algorithm](screen, clock)
+        self.maze = self.maze_generation_algorithms[algorithm](screen, clock)

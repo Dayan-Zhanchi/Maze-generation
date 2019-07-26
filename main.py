@@ -6,6 +6,7 @@ from algorithms.hunt_and_kill import hunt_and_kill
 from algorithms.growing_tree import growing_tree
 from algorithms.kruskal import kruskal
 import constants as c
+from algorithms.pathfinder.rb_pathfinder import rb_pathfinder
 
 def main():
     algorithms = {
@@ -16,7 +17,7 @@ def main():
         c.text_growing_tree: growing_tree,
         c.text_kurskal: kruskal
     }
-    md.MazeDrawer(algorithms).start_game_loop()
+    md.MazeDrawer(algorithms, rb_pathfinder).start_game_loop()
 
 
 if __name__ == '__main__':
