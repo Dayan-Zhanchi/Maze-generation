@@ -2,13 +2,13 @@ import random
 import cell as ce
 import constants as c
 import utils.draw_utils as du
+from algorithms.common_data import initialize_common_data
 from utils import algo_utils
 
 
+
 def growing_tree(screen, clock):
-    grid = [[ce.Cell((i, j), algo_utils.get_neighbours(i, j, True)) for j in range(c.number_of_vertical_lines)]
-            for i in range(c.number_of_horizontal_lines)]
-    visited = [[0 for _ in range(c.number_of_vertical_lines)] for _ in range(c.number_of_horizontal_lines)]
+    grid, visited = initialize_common_data()
     generating_approach = ['Prims', 'RB']
     x, y = random.randint(0, c.number_of_horizontal_lines - 1), random.randint(0, c.number_of_vertical_lines - 1)
     cells = [grid[x][y]]

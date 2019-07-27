@@ -23,7 +23,7 @@ def initialize_edge_list():
     edge_list = []
     for i in range(c.number_of_vertical_lines):
         for j in range(c.number_of_horizontal_lines):
-            for (x, y, direction) in algo_utils.get_neighbours(i, j, True):
+            for (x, y, direction) in algo_utils.get_neighbours(i, j):
                 cell_pos_flattened = i * c.number_of_vertical_lines + j
                 adj_pos_flattened = x * c.number_of_vertical_lines + y
                 edge_list.append((cell_pos_flattened, adj_pos_flattened, direction))
