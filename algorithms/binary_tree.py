@@ -3,11 +3,11 @@ import cell as ce
 import constants as c
 from utils import algo_utils
 from utils import draw_utils
+from algorithms.common_data import initialize_common_data
 
 
 def binary_tree(screen, clock):
-    grid = [[ce.Cell((i, j), algo_utils.get_neighbours(i, j, True)) for j in range(c.number_of_vertical_lines)]
-            for i in range(c.number_of_horizontal_lines)]
+    grid, _ = initialize_common_data()
     bias = 'NW'
 
     for x in range(c.number_of_horizontal_lines):

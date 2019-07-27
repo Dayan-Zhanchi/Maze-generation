@@ -3,6 +3,7 @@ import cell as ce
 import constants as c
 import utils.draw_utils
 from utils import algo_utils
+from algorithms.common_data import initialize_common_data
 
 """ 
     Since there are no weights in the cells the modification of Prims is that we only randomly select the upcoming cells.
@@ -11,9 +12,7 @@ from utils import algo_utils
 
 
 def prims(screen, clock):
-    grid = [[ce.Cell((i, j), algo_utils.get_neighbours(i, j, False)) for j in range(c.number_of_vertical_lines)]
-            for i in range(c.number_of_horizontal_lines)]
-    visited = [[0 for _ in range(c.number_of_vertical_lines)] for _ in range(c.number_of_horizontal_lines)]
+    grid, visited = initialize_common_data()
     x, y = random.randint(0, c.number_of_horizontal_lines - 1), random.randint(0, c.number_of_vertical_lines - 1)
     current_cell = grid[x][y]
     upcoming_cells = []
@@ -42,6 +41,6 @@ def prims(screen, clock):
 def add_upcoming_cells(current_cell, upcoming_cells, visited):
     neighbours = algo_utils.get_unvisited_neighbours(current_cell.neighbours, visited)
     for n in neighbours:
-        x, y = n
+        x, y, _ = n
         if not visited[x][y] and (x, y) not in upcoming_cells:
-            upcoming_cells.append(n)
+            upcoming_cells.append((x, y))
