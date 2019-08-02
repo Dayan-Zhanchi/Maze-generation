@@ -1,7 +1,5 @@
 import random
-import cell as ce
 import constants as c
-from utils import algo_utils
 from utils import draw_utils
 from algorithms.common_data import initialize_common_data
 

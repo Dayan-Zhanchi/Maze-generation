@@ -1,5 +1,4 @@
 import random
-import cell as ce
 import constants as c
 import utils.draw_utils as du
 from algorithms.common_data import initialize_common_data
@@ -26,6 +25,7 @@ def hunt_and_kill(screen, clock):
                 current_cell = grid[x][y]
             else:
                 break
+
 
 def hunt_scan(grid, visited):
     cell = (0, 0)

@@ -10,16 +10,18 @@ def create_canvas():
 
 def draw_2d_grid(screen):
     dimen_params_for_grid = (c.start_x, c.start_y, c.maze_width, c.maze_height)
-    pygame.draw.rect(screen, c.WHITE, dimen_params_for_grid)
+    pygame.draw.rect(screen, c.WHITE, dimen_params_for_grid)  # reset the grid
     pygame.draw.rect(screen, c.BLACK, dimen_params_for_grid, 1)
     # draw the vertical lines
     for i in range(1, c.number_of_vertical_lines):
-        start_x_line = c.start_x + int(c.maze_width / c.number_of_vertical_lines) * i
+        start_x_line = c.start_x + c.grid_size_x * i
         pygame.draw.line(screen, c.BLACK, (start_x_line, c.start_y), (start_x_line, c.start_y + c.maze_height))
     # draw the horizontal lines
     for i in range(1, c.number_of_horizontal_lines):
-        start_y_line = c.start_y + int(c.maze_height / c.number_of_horizontal_lines) * i
+        start_y_line = c.start_y + c.grid_size_y * i
         pygame.draw.line(screen, c.BLACK, (c.start_x, start_y_line), (c.start_x + c.maze_width, start_y_line))
+
+    pygame.display.update()
 
 
 def draw_algo_button(screen, start_x, button_width, start_y, button_height, algo_name):
@@ -56,10 +58,35 @@ def remove_line(screen, x, y, direction):
     pygame.display.update()
 
 
+def draw_entrance_and_exit(screen):
+    # draw entrance
+    pygame.draw.line(screen, c.WHITE, (c.start_x, c.start_y),
+                     (c.start_x + c.grid_size_x, c.start_y))
+
+    # draw exit
+    end_y_line = c.start_y + c.grid_size_y * c.number_of_horizontal_lines - 0.01
+    pygame.draw.line(screen, c.WHITE,
+                     (c.start_x + c.grid_size_x * (c.number_of_vertical_lines - 1),
+                      end_y_line),
+                     (c.start_x + c.grid_size_x * c.number_of_vertical_lines,
+                      end_y_line))
+    pygame.display.update()
+
+
+def reset_all_cells(screen):
+    for i in range(c.number_of_vertical_lines):
+        for j in range(c.number_of_horizontal_lines):
+            color_cell(screen, c.WHITE, i, j)
+
+
+def color_cell_with_update(screen, color, x, y):
+    color_cell(screen, color, x, y)
+    pygame.display.update()
+
+
 def color_cell(screen, color, x, y):
     start_x_line = c.start_x + c.grid_size_x * x  # start x position of the current cell
     start_y_line = c.start_y + c.grid_size_y * y  # start y position of the current cell
     circle_x = start_x_line + (int(c.grid_size_x / 2))  # middle of the cell x
     circle_j = start_y_line + (int(c.grid_size_y / 2))  # middle of the cell y
     pygame.draw.circle(screen, color, (circle_x, circle_j), int((c.grid_size_x + c.grid_size_y) / 8))
-    pygame.display.update()

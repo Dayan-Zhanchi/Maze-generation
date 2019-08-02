@@ -1,5 +1,4 @@
 import random
-import cell as ce
 import constants as c
 import utils.draw_utils
 from utils import algo_utils

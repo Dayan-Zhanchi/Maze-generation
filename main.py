@@ -8,6 +8,7 @@ from algorithms.kruskal import kruskal
 import constants as c
 from algorithms.pathfinder.rb_pathfinder import rb_pathfinder
 
+
 def main():
     algorithms = {
         c.text_prim: prims,
