@@ -10,6 +10,7 @@ canvas_height = 900
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GREEN = (63, 174, 109)
+RED = (231, 76, 60)
 
 maze_width = 500
 maze_height = 500
@@ -33,7 +34,8 @@ frames_hunt_and_kill = 150
 frames_binary_tree = 150
 frames_growing_tree = 200
 frames_kruskal = 400
-frames_rb_pathfinder = 150
+frames_rb_pathfinder = 20  # low val because more interesting to see how the pathfinder is working
+frames_a_star_pathfinder = 30
 
 # buttons
 text_rb = "RB"

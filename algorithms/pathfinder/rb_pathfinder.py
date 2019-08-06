@@ -28,15 +28,13 @@ def rb_pathfinder(screen, clock, maze):
         visited[current_cell.x][current_cell.y] = True
 
         if neighbours:
-            # mark the current cell
-            # stack.append(current_cell)
             for n in neighbours:
                 next_cell_x, next_cell_y = n
                 next_cell = maze[next_cell_x][next_cell_y]
                 if next_cell not in stack:
                     stack.append(next_cell)
                     stack.append(next_cell)
-                current_cell = next_cell
+            current_cell = next_cell
         elif not neighbours and stack:
             # reached a dead end so we backtrack, the stack keeps track of previous cells
             # make sure to color the current cell white before backtracking indicating we are turning back

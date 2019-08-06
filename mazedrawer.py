@@ -81,7 +81,7 @@ class MazeDrawer:
             elif pygame.key.get_pressed()[pygame.K_g]:
                 self.run_algorithm(screen, clock, 'GT')
             elif pygame.key.get_pressed()[pygame.K_s]:
-                self.run_pathfinder(clock, screen)
+                self.run_pathfinder(clock, screen, self.maze)
             elif pygame.key.get_pressed()[pygame.K_ESCAPE]:
                 running = False
         return running
@@ -92,7 +92,7 @@ class MazeDrawer:
         self.maze = self.maze_generation_algorithms[algorithm](screen, clock)
         du.draw_entrance_and_exit(screen)
 
-    def run_pathfinder(self, clock, screen):
+    def run_pathfinder(self, clock, screen, maze):
         # reset cells to initial state before running pathfinder
         du.reset_all_cells(screen)
-        self.pathfinder_algorithm(screen, clock, self.maze)
+        self.pathfinder_algorithm(screen, clock, maze)

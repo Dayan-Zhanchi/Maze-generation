@@ -7,6 +7,7 @@ from algorithms.growing_tree import growing_tree
 from algorithms.kruskal import kruskal
 import constants as c
 from algorithms.pathfinder.rb_pathfinder import rb_pathfinder
+from algorithms.pathfinder.a_star import a_star
 
 
 def main():
@@ -18,7 +19,7 @@ def main():
         c.text_growing_tree: growing_tree,
         c.text_kurskal: kruskal
     }
-    md.MazeDrawer(algorithms, rb_pathfinder).start_game_loop()
+    md.MazeDrawer(algorithms, a_star).start_game_loop()
 
 
 if __name__ == '__main__':
