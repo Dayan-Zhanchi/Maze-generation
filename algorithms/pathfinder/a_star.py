@@ -1,8 +1,8 @@
 import queue
 import constants as c
 from itertools import count
-from utils import algo_utils
 import utils.draw_utils as du
+from utils.alg_util import get_unvisited_neighbours
 
 start_x, start_y = 0, 0
 goal_x, goal_y = 19, 19
@@ -21,7 +21,7 @@ def a_star(screen, clock, maze):
 
         if (current.x, current.y) == (goal_x, goal_y): break
 
-        for x, y in algo_utils.get_unvisited_neighbours(current.neighbours, distances):
+        for x, y in get_unvisited_neighbours(current, distances):
             new_cost = distances[current.x][current.y] + 1
             next_cell = maze[x][y]
             if distances[x][y] == 0 or new_cost < distances[x][y]:

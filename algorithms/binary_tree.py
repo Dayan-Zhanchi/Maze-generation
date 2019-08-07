@@ -1,17 +1,17 @@
 import random
 import constants as c
 from utils import draw_utils
-from utils.algo_utils import initialize_common_data
+from maze import Maze
 
 
 def binary_tree(screen, clock):
-    grid, _ = initialize_common_data()
+    maze = Maze()
     bias = 'NW'
 
     for x in range(c.number_of_horizontal_lines):
         for y in range(c.number_of_vertical_lines):
             clock.tick(c.frames_binary_tree)
-            current_cell = grid[x][y]
+            current_cell = maze.grid[x][y]
             neighbours = current_cell.neighbours
             chosen_random_direction = ''
             jump = False

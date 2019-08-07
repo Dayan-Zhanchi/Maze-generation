@@ -1,8 +1,7 @@
 import random
 import constants as c
 import utils.draw_utils as du
-from utils import algo_utils as au
-
+from utils.alg_util import get_neighbours
 
 def kruskal(screen, clock):
     maze_size = c.number_of_vertical_lines * c.number_of_horizontal_lines
@@ -23,7 +22,7 @@ def initialize_edge_list():
     edge_list = []
     for i in range(c.number_of_vertical_lines):
         for j in range(c.number_of_horizontal_lines):
-            for (x, y, direction) in au.get_neighbours(i, j):
+            for (x, y, direction) in get_neighbours(i, j):
                 cell_pos_flattened = i * c.number_of_vertical_lines + j
                 adj_pos_flattened = x * c.number_of_vertical_lines + y
                 edge_list.append((cell_pos_flattened, adj_pos_flattened, direction))
