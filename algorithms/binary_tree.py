@@ -1,7 +1,7 @@
 import random
 import constants as c
 from utils import draw_utils
-from algorithms.common_data import initialize_common_data
+from utils.algo_utils import initialize_common_data
 
 
 def binary_tree(screen, clock):

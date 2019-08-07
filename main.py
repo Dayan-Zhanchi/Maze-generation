@@ -1,4 +1,4 @@
-import mazedrawer as md
+import game
 from algorithms.prims import prims
 from algorithms.binary_tree import binary_tree
 from algorithms.recursive_backtracking import recursive_backtracking
@@ -19,7 +19,7 @@ def main():
         c.text_growing_tree: growing_tree,
         c.text_kurskal: kruskal
     }
-    md.MazeDrawer(algorithms, a_star).start_game_loop()
+    game.Game(algorithms, a_star).start_game_loop()
 
 
 if __name__ == '__main__':

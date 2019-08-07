@@ -2,7 +2,7 @@ import random
 import constants as c
 import utils.draw_utils
 from utils import algo_utils
-from algorithms.common_data import initialize_common_data
+from utils.algo_utils import initialize_common_data
 
 """ 
     Since there are no weights in the cells the modification of Prims is that we only randomly select the upcoming cells.

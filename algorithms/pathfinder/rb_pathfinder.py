@@ -21,7 +21,7 @@ def rb_pathfinder(screen, clock, maze):
     stack = [current_cell, current_cell]
     while True:
         clock.tick(c.frames_rb_pathfinder)
-        neighbours = algo_utils.get_unvisited_neighbours(current_cell.neighbours, visited)
+        neighbours = maze.get_unvisited_neighbours(current_cell.neighbours, visited)
         if not visited[current_cell.x][current_cell.y]:
             du.color_cell_with_update(screen, c.GREEN, current_cell.x, current_cell.y)
             if current_cell.x == c.number_of_vertical_lines - 1 and current_cell.y == c.number_of_horizontal_lines - 1: break
