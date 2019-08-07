@@ -1,7 +1,7 @@
 import random
 import constants as c
 import utils.draw_utils as du
-from algorithms.common_data import initialize_common_data
+from utils.algo_utils import initialize_common_data
 from utils import algo_utils
 
 

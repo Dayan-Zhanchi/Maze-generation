@@ -3,7 +3,7 @@ import cell as ce
 import constants as c
 import utils.draw_utils
 from utils import algo_utils
-from algorithms.common_data import initialize_common_data
+from utils.algo_utils import initialize_common_data
 
 
 def recursive_backtracking(screen, clock):

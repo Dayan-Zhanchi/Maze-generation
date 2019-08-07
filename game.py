@@ -4,7 +4,7 @@ import constants as c
 from utils import draw_utils as du
 
 
-class MazeDrawer:
+class Game:
 
     def __init__(self, maze_generation_algorithm, pathfinder_algorithm):
         self.maze_generation_algorithms = maze_generation_algorithm
@@ -31,7 +31,7 @@ class MazeDrawer:
         # draw the foundation of the maze as a 2d grid
         du.draw_2d_grid(screen)
         # draw the buttons for the different maze generation algorithms
-        algo_buttons = MazeDrawer.initialize_algo_buttons(screen)
+        algo_buttons = Game.initialize_algo_buttons(screen)
         return screen, algo_buttons
 
     @staticmethod

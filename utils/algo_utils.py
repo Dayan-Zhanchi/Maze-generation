@@ -1,9 +1,15 @@
 import random
+import cell as ce
 import constants as c
 
-"""
-    Composition over inheritance, I choose not to do inheritance with the util along with the algorithms
-"""
+
+
+def initialize_common_data():
+    grid = [[ce.Cell((i, j), get_neighbours(i, j)) for j in range(c.number_of_vertical_lines)]
+            for i in range(c.number_of_horizontal_lines)]
+    visited = [[0 for _ in range(c.number_of_vertical_lines)] for _ in range(c.number_of_horizontal_lines)]
+    return grid, visited
+
 
 def get_random_cell(cells):
     if len(cells) > 1:
