@@ -1,6 +1,7 @@
 import queue
-import constants as c
 from itertools import count
+
+import constants as c
 import utils.draw_utils as du
 from utils.alg_util import get_unvisited_neighbours
 

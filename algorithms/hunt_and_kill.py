@@ -1,8 +1,9 @@
 import random
+
 import constants as c
 import utils.draw_utils as du
-from maze import Maze
-from utils.alg_util import get_unvisited_neighbours
+from components.maze import Maze
+from utils.alg_util import get_unvisited_neighbours, get_random_cell, get_random_adj_cell_direction
 
 
 def hunt_and_kill(screen, clock):
@@ -14,14 +15,14 @@ def hunt_and_kill(screen, clock):
         maze.visited[current_cell.x][current_cell.y] = True
         unvisited_neighbours = get_unvisited_neighbours(current_cell, maze.visited)
         if unvisited_neighbours:
-            x, y, direction = maze.get_random_cell(unvisited_neighbours)
+            x, y, direction = get_random_cell(unvisited_neighbours)
             du.remove_line(screen, current_cell.x, current_cell.y, direction)  # remove line from the current cell and not from the unvisited neighbour
             current_cell = maze.grid[x][y]
         else:
             hunt, (x, y) = hunt_scan(maze.grid, maze.visited)
             if hunt:
                 cell = maze.grid[x][y]
-                du.remove_line(screen, cell.x, cell.y, maze.get_random_adj_cell_direction(cell, maze.visited))
+                du.remove_line(screen, cell.x, cell.y, get_random_adj_cell_direction(cell, maze.visited))
                 current_cell = cell
             else:
                 break

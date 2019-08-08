@@ -1,8 +1,9 @@
 import random
+
 import constants as c
 import utils.draw_utils
-from maze import Maze
-from utils.alg_util import get_unvisited_neighbours
+from components.maze import Maze
+from utils.alg_util import get_unvisited_neighbours, get_random_cell, get_random_adj_cell_direction
 
 """ 
     Since there are no weights in the cells the modification of Prims is that we only randomly select the upcoming cells.
@@ -10,6 +11,8 @@ from utils.alg_util import get_unvisited_neighbours
 """
 
 maze = Maze()
+
+
 def prims(screen, clock):
     global maze
 
@@ -24,12 +27,12 @@ def prims(screen, clock):
     while upcoming_cells:
         clock.tick(c.frames_prim)
 
-        x, y = maze.get_random_cell(upcoming_cells)
+        x, y = get_random_cell(upcoming_cells)
         current_cell = maze.grid[x][y]
         if maze.visited[current_cell.x][current_cell.y]: continue
         maze.visited[current_cell.x][current_cell.y] = True
 
-        direction = maze.get_random_adj_cell_direction(current_cell, working_maze)
+        direction = get_random_adj_cell_direction(current_cell, working_maze)
         utils.draw_utils.remove_line(screen, current_cell.x, current_cell.y, direction)
         upcoming_cells.remove((current_cell.x, current_cell.y))
 

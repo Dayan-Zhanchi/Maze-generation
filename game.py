@@ -1,8 +1,9 @@
 import pygame
-import button as b
+
 import constants as c
-from utils import draw_utils as du
+from components import button as b
 from setup_maze_algos import create_mappings_for_generation_algos, create_mappings_for_pathfinder_algos
+from utils import draw_utils as du
 
 
 class Game:
