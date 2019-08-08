@@ -1,7 +1,9 @@
 import random
+
 import constants as c
 import utils.draw_utils as du
 from utils.alg_util import get_neighbours
+
 
 def kruskal(screen, clock):
     maze_size = c.number_of_vertical_lines * c.number_of_horizontal_lines

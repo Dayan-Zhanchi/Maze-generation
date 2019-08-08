@@ -1,7 +1,8 @@
 import random
+
 import constants as c
+from components.maze import Maze
 from utils import draw_utils
-from maze import Maze
 
 
 def binary_tree(screen, clock):

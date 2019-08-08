@@ -1,4 +1,31 @@
+from random import randint
+
 import constants as c
+
+
+def get_random_cell(cells):
+    if len(cells) > 1:
+        return cells[randint(0, len(cells) - 1)]
+    return cells[0]
+
+
+# Get the direction of a randomly selected visited adjacent cell
+# x and y coord is for an unvisited cell
+def get_random_adj_cell_direction(cell, visited):
+    adj_cells = get_neighbours(cell.x, cell.y)
+    adj_cell_direction = []
+    for (x, y, direction) in adj_cells:
+        if visited[x][y] != 0:
+            adj_cell_direction.append(direction)
+    return adj_cell_direction[randint(0, len(adj_cell_direction) - 1)]
+
+
+# append current cell and next cell to the neighbours of each other
+def add_cell_to_walkable_path(current_cell, next_cell, path):
+    if (next_cell.x, next_cell.y) not in path[current_cell.x][current_cell.y].neighbours:
+        path[current_cell.x][current_cell.y].neighbours.append((next_cell.x, next_cell.y))
+    if (current_cell.x, current_cell.y) not in path[next_cell.x][next_cell.y].neighbours:
+        path[next_cell.x][next_cell.y].neighbours.append((current_cell.x, current_cell.y))
 
 
 def get_neighbours(x, y):

@@ -1,12 +1,11 @@
 import constants as c
-from algorithms.prims import prims
-from algorithms.kruskal import kruskal
 from algorithms.binary_tree import binary_tree
 from algorithms.growing_tree import growing_tree
 from algorithms.hunt_and_kill import hunt_and_kill
-from algorithms.recursive_backtracking import recursive_backtracking
+from algorithms.kruskal import kruskal
 from algorithms.pathfinder.a_star import a_star
-from algorithms.pathfinder.rb_pathfinder import rb_pathfinder
+from algorithms.prims import prims
+from algorithms.recursive_backtracking import recursive_backtracking
 
 
 def create_mappings_for_generation_algos():

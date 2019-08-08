@@ -2,6 +2,7 @@ import constants as c
 import utils.draw_utils as du
 from utils.alg_util import get_unvisited_neighbours
 
+
 def rb_pathfinder(screen, clock, maze):
     visited = [[0 for _ in range(c.number_of_vertical_lines)] for _ in range(c.number_of_horizontal_lines)]
     x, y = 0, 0
