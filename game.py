@@ -1,7 +1,7 @@
 import pygame
 
-import constants as c
 from components import button as b
+from constants import button_consts as bc
 from setup_maze_algos import create_mappings_for_generation_algos, create_mappings_for_pathfinder_algos
 from utils import draw_utils as du
 
@@ -39,23 +39,23 @@ class Game:
     def initialize_algo_buttons(self):
         # TODO: Perhaps create a class that wraps the relevant parameters for the button
         #  creation, may be less messy and shorten the code
-        button_1_start_x = c.button_start_x
-        button_2_start_x = button_1_start_x + c.button_width + c.button_offset_x
-        button_3_start_x = button_1_start_x + c.button_width * 2 + c.button_offset_x * 2
-        second_row_buttons_start_y = c.button_start_y + c.button_height + c.button_offset_y
+        button_1_start_x = bc.button_start_x
+        button_2_start_x = button_1_start_x + bc.button_width + bc.button_offset_x
+        button_3_start_x = button_1_start_x + bc.button_width * 2 + bc.button_offset_x * 2
+        second_row_buttons_start_y = bc.button_start_y + bc.button_height + bc.button_offset_y
 
-        self.algo_buttons.append(b.Button(self.screen, button_1_start_x, c.button_width,
-                                          c.button_start_y, c.button_height, c.text_prim))
-        self.algo_buttons.append(b.Button(self.screen, button_2_start_x, c.button_width,
-                                          c.button_start_y, c.button_height, c.text_rb))
-        self.algo_buttons.append(b.Button(self.screen, button_3_start_x, c.button_width,
-                                          c.button_start_y, c.button_height, c.text_hunt_and_kill))
-        self.algo_buttons.append(b.Button(self.screen, button_1_start_x, c.button_width,
-                                          second_row_buttons_start_y, c.button_height, c.text_kurskal))
-        self.algo_buttons.append(b.Button(self.screen, button_2_start_x, c.button_width,
-                                          second_row_buttons_start_y, c.button_height, c.text_binary_tree))
-        self.algo_buttons.append(b.Button(self.screen, button_3_start_x, c.button_width,
-                                          second_row_buttons_start_y, c.button_height, c.text_growing_tree))
+        self.algo_buttons.append(b.Button(self.screen, button_1_start_x, bc.button_width,
+                                          bc.button_start_y, bc.button_height, bc.text_prim))
+        self.algo_buttons.append(b.Button(self.screen, button_2_start_x, bc.button_width,
+                                          bc.button_start_y, bc.button_height, bc.text_rb))
+        self.algo_buttons.append(b.Button(self.screen, button_3_start_x, bc.button_width,
+                                          bc.button_start_y, bc.button_height, bc.text_hunt_and_kill))
+        self.algo_buttons.append(b.Button(self.screen, button_1_start_x, bc.button_width,
+                                          second_row_buttons_start_y, bc.button_height, bc.text_kurskal))
+        self.algo_buttons.append(b.Button(self.screen, button_2_start_x, bc.button_width,
+                                          second_row_buttons_start_y, bc.button_height, bc.text_binary_tree))
+        self.algo_buttons.append(b.Button(self.screen, button_3_start_x, bc.button_width,
+                                          second_row_buttons_start_y, bc.button_height, bc.text_growing_tree))
 
     def handle_button_event(self):
         mouse = pygame.mouse.get_pos()
@@ -79,8 +79,10 @@ class Game:
                 self.run_algorithm('BT')
             elif pygame.key.get_pressed()[pygame.K_g]:
                 self.run_algorithm('GT')
-            elif pygame.key.get_pressed()[pygame.K_s]:
-                self.run_pathfinder(self.maze)
+            elif pygame.key.get_pressed()[pygame.K_1]:
+                self.run_pathfinder("1")
+            elif pygame.key.get_pressed()[pygame.K_2]:
+                self.run_pathfinder("2")
             elif pygame.key.get_pressed()[pygame.K_ESCAPE]:
                 running = False
         return running
@@ -91,7 +93,7 @@ class Game:
         self.maze = self.maze_generation_algorithms[algorithm](self.screen, self.clock)
         du.draw_entrance_and_exit(self.screen)
 
-    def run_pathfinder(self, maze):
+    def run_pathfinder(self, pathfinder):
         # reset cells to initial state before running pathfinder
         du.reset_all_cells(self.screen)
-        self.pathfinder_algorithm(self.screen, self.clock, maze)
+        self.pathfinder_algorithm[pathfinder](self.screen, self.clock, self.maze)

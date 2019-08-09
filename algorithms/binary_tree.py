@@ -1,6 +1,7 @@
 import random
 
-import constants as c
+from constants import dimension_consts as c
+from constants import frame_consts
 from components.maze import Maze
 from utils import draw_utils
 
@@ -11,7 +12,7 @@ def binary_tree(screen, clock):
 
     for x in range(c.number_of_horizontal_lines):
         for y in range(c.number_of_vertical_lines):
-            clock.tick(c.frames_binary_tree)
+            clock.tick(frame_consts.frames_binary_tree)
             current_cell = maze.grid[x][y]
             neighbours = current_cell.neighbours
             chosen_random_direction = ''

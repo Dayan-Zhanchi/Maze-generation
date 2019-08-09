@@ -1,6 +1,7 @@
 import random
 
-import constants as c
+from constants import dimension_consts as c
+from constants import frame_consts
 import utils.draw_utils as du
 from components.maze import Maze
 from utils.alg_util import get_unvisited_neighbours, get_random_cell
@@ -13,7 +14,7 @@ def growing_tree(screen, clock):
     cells = [maze.grid[x][y]]
     maze.visited[x][y] = True
     while cells:
-        clock.tick(c.frames_growing_tree)
+        clock.tick(frame_consts.frames_growing_tree)
         # randomly select an approach, either Prims or recursive backtracking
         approach = random.randint(0, len(generating_approach) - 1)
         if approach == 'RB':

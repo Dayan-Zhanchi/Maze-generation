@@ -1,4 +1,4 @@
-import constants as c
+from constants import dimension_consts as c
 from components import cell as ce
 from utils.alg_util import get_neighbours
 

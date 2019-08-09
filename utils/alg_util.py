@@ -1,6 +1,6 @@
 from random import randint
 
-import constants as c
+from constants import dimension_consts as c
 
 
 def get_random_cell(cells):

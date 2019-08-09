@@ -1,7 +1,9 @@
 import queue
 from itertools import count
 
-import constants as c
+from constants import dimension_consts as c, dimension_consts
+from constants import frame_consts
+from constants import color_consts
 import utils.draw_utils as du
 from utils.alg_util import get_unvisited_neighbours
 
@@ -17,7 +19,7 @@ def a_star(screen, clock, maze):
     unique = count()
     q.put((0, next(unique), current))
     while not q.empty():
-        clock.tick(c.frames_a_star_pathfinder)
+        clock.tick(frame_consts.frames_a_star_pathfinder)
         _, _, current = q.get()
 
         if (current.x, current.y) == (goal_x, goal_y): break
@@ -31,7 +33,7 @@ def a_star(screen, clock, maze):
                 q.put((dist_to_goal, next(unique), next_cell))
                 came_from[next_cell] = current
 
-                du.color_cell_with_update(screen, c.RED, x, y)
+                du.color_cell_with_update(screen, color_consts.RED, x, y)
 
     path = construct_path(came_from, maze)
     display_path(screen, path)
@@ -59,10 +61,10 @@ def construct_path(came_from, maze):
 
 def display_path(screen, path):
     for x, y in path:
-        du.color_cell_with_update(screen, c.GREEN, x, y)
+        du.color_cell_with_update(screen, color_consts.GREEN, x, y)
 
 
 def remove_wrong_paths(screen, path, came_from):
     for cell, _ in came_from.items():
         if (cell.x, cell.y) not in path:
-            du.color_cell_with_update(screen, c.WHITE, cell.x, cell.y)
+            du.color_cell_with_update(screen, color_consts.WHITE, cell.x, cell.y)

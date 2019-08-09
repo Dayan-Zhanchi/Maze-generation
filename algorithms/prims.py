@@ -1,6 +1,7 @@
 import random
 
-import constants as c
+from constants import dimension_consts as c
+from constants import frame_consts
 import utils.draw_utils
 from components.maze import Maze
 from utils.alg_util import get_unvisited_neighbours, get_random_cell, get_random_adj_cell_direction
@@ -25,7 +26,7 @@ def prims(screen, clock):
     working_maze[current_cell.x][current_cell.y] = current_cell
 
     while upcoming_cells:
-        clock.tick(c.frames_prim)
+        clock.tick(frame_consts.frames_prim)
 
         x, y = get_random_cell(upcoming_cells)
         current_cell = maze.grid[x][y]

@@ -1,6 +1,7 @@
 import random
 
-import constants as c
+from constants import dimension_consts as c
+from constants import frame_consts
 import utils.draw_utils as du
 from utils.alg_util import get_neighbours
 
@@ -11,7 +12,7 @@ def kruskal(screen, clock):
     edge_list = initialize_edge_list()
 
     while edge_list:
-        clock.tick(c.frames_kruskal)
+        clock.tick(frame_consts.frames_kruskal)
         a, b, direction = edge_list[random.randint(0, len(edge_list) - 1)]
         if not maze.same(a, b):
             maze.unite(a, b)

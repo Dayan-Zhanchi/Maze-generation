@@ -1,5 +1,7 @@
-import constants as c
 import utils.draw_utils as du
+from constants import color_consts
+from constants import dimension_consts as c
+from constants import frame_consts
 from utils.alg_util import get_unvisited_neighbours
 
 
@@ -20,10 +22,10 @@ def rb_pathfinder(screen, clock, maze):
     """
     stack = [current_cell, current_cell]
     while True:
-        clock.tick(c.frames_rb_pathfinder)
+        clock.tick(frame_consts.frames_rb_pathfinder)
         neighbours = get_unvisited_neighbours(current_cell, visited)
         if not visited[current_cell.x][current_cell.y]:
-            du.color_cell_with_update(screen, c.GREEN, current_cell.x, current_cell.y)
+            du.color_cell_with_update(screen, color_consts.GREEN, current_cell.x, current_cell.y)
             if current_cell.x == c.number_of_vertical_lines - 1 and current_cell.y == c.number_of_horizontal_lines - 1: break
         visited[current_cell.x][current_cell.y] = True
 
@@ -39,4 +41,4 @@ def rb_pathfinder(screen, clock, maze):
             # reached a dead end so we backtrack, the stack keeps track of previous cells
             # make sure to color the current cell white before backtracking indicating we are turning back
             current_cell = stack.pop()
-            du.color_cell_with_update(screen, c.WHITE, current_cell.x, current_cell.y)
+            du.color_cell_with_update(screen, color_consts.WHITE, current_cell.x, current_cell.y)

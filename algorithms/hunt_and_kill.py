@@ -1,6 +1,7 @@
 import random
 
-import constants as c
+from constants import dimension_consts as c
+from constants import frame_consts
 import utils.draw_utils as du
 from components.maze import Maze
 from utils.alg_util import get_unvisited_neighbours, get_random_cell, get_random_adj_cell_direction
@@ -11,7 +12,7 @@ def hunt_and_kill(screen, clock):
     x, y = random.randint(0, c.number_of_horizontal_lines - 1), random.randint(0, c.number_of_vertical_lines - 1)
     current_cell = maze.grid[x][y]
     while True:
-        clock.tick(c.frames_hunt_and_kill)
+        clock.tick(frame_consts.frames_hunt_and_kill)
         maze.visited[current_cell.x][current_cell.y] = True
         unvisited_neighbours = get_unvisited_neighbours(current_cell, maze.visited)
         if unvisited_neighbours:

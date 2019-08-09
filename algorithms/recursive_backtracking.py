@@ -1,6 +1,7 @@
 import random
 
-import constants as c
+from constants import dimension_consts as c
+from constants import frame_consts
 import utils.draw_utils
 from components.maze import Maze
 from utils.alg_util import get_unvisited_neighbours, get_random_cell, add_cell_to_walkable_path
@@ -12,7 +13,7 @@ def recursive_backtracking(screen, clock):
     current_cell = maze.grid[x][y]
     stack = [current_cell]
     while stack:
-        clock.tick(c.frames_rb)
+        clock.tick(frame_consts.frames_rb)
         neighbours = get_unvisited_neighbours(current_cell, maze.visited)
         maze.visited[current_cell.x][current_cell.y] = True
 
